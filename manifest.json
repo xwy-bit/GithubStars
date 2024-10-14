@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub Star Counter",
+  "version": "1.0",
+  "description": "Displays GitHub repo stars on a webpage.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "identity"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "host_permissions": [
+    "https://api.github.com/*"
+  ]
+}
